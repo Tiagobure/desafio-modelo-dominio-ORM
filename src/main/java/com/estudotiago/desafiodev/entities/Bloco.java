@@ -2,6 +2,7 @@ package com.estudotiago.desafiodev.entities;
 
 import java.time.Instant;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,14 +16,20 @@ public class Bloco {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant startTime;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant endTime;
+	
+	
 	                      
 	public Bloco() {
 		
 	}
 	public Bloco(Integer id, Instant start, Instant end) {
-		super();
+
 		this.id = id;
 		this.startTime = start;
 		this.endTime = end;
