@@ -4,9 +4,12 @@ import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,7 +26,9 @@ public class Bloco {
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant endTime;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_id", nullable = false) 
+	private Activity activity;
 	                      
 	public Bloco() {
 		
@@ -40,17 +45,20 @@ public class Bloco {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Instant getStart() {
+	public Instant getStartTime() {
 		return startTime;
 	}
-	public void setStart(Instant start) {
+	public void setStartTime(Instant start) {
 		this.startTime = start;
 	}
-	public Instant getEnd() {
+	public Instant getEndTime() {
 		return endTime;
 	}
-	public void setEnd(Instant end) {
+	public void setEndTime(Instant end) {
 		this.endTime = end;
+	}
+	public Activity getActivity() {
+		return activity;
 	}
 	
 	

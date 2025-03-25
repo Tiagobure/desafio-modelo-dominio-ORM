@@ -3,6 +3,7 @@ package com.estudotiago.desafiodev.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,6 +33,9 @@ public class Activity {
 	
 	@ManyToMany(mappedBy = "activities")
 	private List<Participant> participants = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "activity", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Bloco> blocos= new ArrayList<>();
 	
 	
 	public Activity() {
@@ -75,6 +80,9 @@ public class Activity {
 	}
 	public List<Participant> getParticipants() {
 		return participants;
+	}
+	public List<Bloco> getBlocos() {
+		return blocos;
 	}
 	
 	
