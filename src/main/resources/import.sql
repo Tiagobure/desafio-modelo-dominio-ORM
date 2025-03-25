@@ -16,7 +16,7 @@ INSERT INTO participant_activity(participant_id, activity_id) VALUES (1, 2);
 INSERT INTO participant_activity(participant_id, activity_id) VALUES (2, 1);
 INSERT INTO participant_activity(participant_id, activity_id) VALUES (3, 1);
 INSERT INTO participant_activity(participant_id, activity_id) VALUES (3, 2);
-INSERT INTO participant_activity(participant_id, activity_id) VALUES (4, 1);
+INSERT INTO participant_activity(participant_id, activity_id) VALUES (4, 2);
 
 INSERT INTO tb_bloco (start_time, end_time, activity_id) VALUES (TIMESTAMP WITH TIME ZONE '2017-09-25T08:00:00Z', TIMESTAMP WITH TIME ZONE '2017-09-25T11:00:00Z', 1);
 
